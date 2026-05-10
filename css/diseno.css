@@ -1,0 +1,377 @@
+.design-page {
+  padding: 140px 8% 80px;
+}
+
+.page-title {
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 60px; /* <-- agrega esto */
+  margin-bottom: 60px;
+}
+
+.page-title h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.page-title p {
+  color: var(--gray);
+  max-width: 700px;
+  line-height: 1.8;
+}
+
+.design-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 35px;
+}
+
+.design-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.design-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(139,92,246,0.3);
+}
+
+.design-card > img {
+
+  width: 100%;
+  height: 400px;
+
+  object-fit: contain;
+
+  background:
+    linear-gradient(to bottom, #111, #1a1a1a);
+
+  padding: 15px;
+}
+
+.design-info {
+  padding: 24px;
+}
+
+.design-info h3 {
+  margin-bottom: 12px;
+  font-size: 1.3rem;
+}
+
+.design-info p {
+  color: var(--gray);
+  line-height: 1.7;
+}
+
+@media (max-width: 700px) {
+
+  .design-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .page-title h1 {
+    font-size: 2.2rem;
+  }
+
+}
+
+.figma-preview {
+  width: 100%;
+  height: 360px;
+
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+
+  background: linear-gradient(180deg, #0f0f0f, #1a1a1a);
+}
+
+.figma-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  transition: transform 0.5s ease;
+}
+
+
+
+.design-card:hover .figma-preview img {
+  transform: scale(1.05);
+}
+
+.figma-preview iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  pointer-events: none;
+}
+
+.figma-btn {
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 22px;
+
+  padding: 14px 22px;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #8b5cf6,
+      #a855f7
+    );
+
+  color: white;
+
+  text-decoration: none;
+
+  font-weight: 600;
+
+  letter-spacing: 0.5px;
+
+  font-size: 0.95rem;
+
+  transition: all 0.35s ease;
+
+  box-shadow:
+    0 0 20px rgba(139,92,246,0.35);
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+/* BRILLO */
+
+.figma-btn::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 100%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent,
+      rgba(255,255,255,0.3),
+      transparent
+    );
+
+  transition: 0.6s;
+}
+
+/* HOVER */
+
+.figma-btn:hover {
+
+  transform: translateY(-4px) scale(1.03);
+
+  box-shadow:
+    0 0 30px rgba(168,85,247,0.55);
+}
+
+.figma-btn:hover::before {
+  left: 120%;
+}
+
+/* ========================= */
+/* MINI CARRUSEL */
+/* ========================= */
+
+.mini-carousel {
+
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  background: #111;
+}
+
+/* IMAGENES */
+
+.carousel-img {
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+/* ACTIVA */
+
+.carousel-img.active {
+  opacity: 1;
+}
+
+.category-title {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* puntico bien centrado */
+.category-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+
+  background: linear-gradient(135deg, #8b5cf6, #a855f7);
+  box-shadow: 0 0 12px rgba(139,92,246,0.6);
+}
+
+/* título más limpio */
+.category-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+/* texto */
+.category-title p {
+  color: var(--gray);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 500px;
+}
+
+.pdf-preview {
+  width: 100%;
+  height: 380px;
+
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+
+  background: #111;
+}
+
+.pdf-preview iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ========================= */
+/* CINEMATIC LIGHTS */
+/* ========================= */
+
+.background-lights {
+
+  position: fixed;
+  inset: 0;
+
+  overflow: hidden;
+
+  z-index: -1;
+
+  pointer-events: none;
+}
+
+/* LIGHT */
+
+.light {
+
+  position: absolute;
+
+  width: 600px;
+  height: 600px;
+
+  border-radius: 50%;
+
+  filter: blur(140px);
+
+  opacity: 0.18;
+
+  mix-blend-mode: screen;
+
+  animation: cinematicFloat 18s ease-in-out infinite;
+}
+
+/* LIGHT 1 */
+
+.l1 {
+
+  background: #f4809f;
+
+  top: -10%;
+  left: -10%;
+}
+
+/* LIGHT 2 */
+
+.l2 {
+
+  background: #e250ff;
+
+  bottom: -15%;
+  right: -10%;
+
+  animation-delay: 4s;
+}
+
+/* LIGHT 3 */
+
+.l3 {
+
+  background: #7a15ff;
+
+  top: 40%;
+  left: 35%;
+
+  animation-delay: 8s;
+}
+
+
+
+/* MOVIMIENTO */
+
+@keyframes cinematicFloat {
+
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+
+  25% {
+    transform: translate(40px, -20px) scale(1.05);
+  }
+
+  50% {
+    transform: translate(-30px, 30px) scale(0.95);
+  }
+
+  75% {
+    transform: translate(20px, -40px) scale(1.02);
+  }
+
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}

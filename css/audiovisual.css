@@ -1,0 +1,183 @@
+.video-page {
+  padding: 140px 8% 80px;
+}
+
+.page-title {
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 60px; /* <-- agrega esto */
+  margin-bottom: 60px;
+}
+
+.page-title h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.page-title p {
+  color: var(--gray);
+  max-width: 700px;
+  line-height: 1.8;
+}
+
+.video-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 35px;
+}
+
+.video-card {
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  overflow: hidden;
+
+  transition: 0.3s;
+}
+
+.video-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(139,92,246,0.3);
+}
+
+.video-card video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+
+  display: block;
+  background: black;
+}
+
+.video-info {
+  padding: 24px;
+}
+
+.video-info h3 {
+  margin-bottom: 12px;
+  font-size: 1.3rem;
+}
+
+.video-info p {
+  color: var(--gray);
+  line-height: 1.7;
+}
+
+@media (max-width: 700px) {
+
+  .video-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .page-title h1 {
+    font-size: 2.2rem;
+  }
+
+}
+
+/* ========================= */
+/* CINEMATIC LIGHTS */
+/* ========================= */
+
+.background-lights {
+
+  position: fixed;
+  inset: 0;
+
+  overflow: hidden;
+
+  z-index: -1;
+
+  pointer-events: none;
+}
+
+/* LIGHT */
+
+.light {
+
+  position: absolute;
+
+  width: 600px;
+  height: 600px;
+
+  border-radius: 50%;
+
+  filter: blur(140px);
+
+  opacity: 0.18;
+
+  mix-blend-mode: screen;
+
+  animation: cinematicFloat 18s ease-in-out infinite;
+}
+
+/* LIGHT 1 */
+
+.l1 {
+
+  background: #f4809f;
+
+  top: -10%;
+  left: -10%;
+}
+
+/* LIGHT 2 */
+
+.l2 {
+
+  background: #e250ff;
+
+  bottom: -15%;
+  right: -10%;
+
+  animation-delay: 4s;
+}
+
+/* LIGHT 3 */
+
+.l3 {
+
+  background: #7a15ff;
+
+  top: 40%;
+  left: 35%;
+
+  animation-delay: 8s;
+}
+
+
+
+/* MOVIMIENTO */
+
+@keyframes cinematicFloat {
+
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+
+  25% {
+    transform: translate(40px, -20px) scale(1.05);
+  }
+
+  50% {
+    transform: translate(-30px, 30px) scale(0.95);
+  }
+
+  75% {
+    transform: translate(20px, -40px) scale(1.02);
+  }
+
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}

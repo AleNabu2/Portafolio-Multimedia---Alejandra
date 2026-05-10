@@ -1,0 +1,251 @@
+.games-page {
+  padding: 140px 8% 80px;
+}
+
+.page-title {
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 60px;
+  /* <-- agrega esto */
+  margin-bottom: 60px;
+}
+
+.page-title h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.page-title p {
+  color: var(--gray);
+  max-width: 700px;
+  line-height: 1.8;
+}
+
+.games-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.game-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  overflow: hidden;
+  transition: 0.3s;
+  align-items: center;
+}
+
+.game-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+.game-preview {
+
+  width: 100%;
+
+  aspect-ratio: 16 / 9;
+
+  background: #000;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.game-video {
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  object-position: center;
+
+  display: block;
+
+  transition: transform 0.6s ease;
+}
+
+/* ZOOM SUAVE */
+.game-card:hover .game-video {
+  transform: scale(1.05);
+}
+
+.game-info {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.game-info h3 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.game-info p {
+  color: var(--gray);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.game-tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.game-tags span {
+  background: rgba(139, 92, 246, 0.15);
+  color: var(--accent-light);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+}
+
+.game-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.game-buttons a {
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  background: var(--accent);
+  color: white;
+  transition: 0.3s;
+}
+
+.game-buttons a:hover {
+  background: var(--accent-light);
+}
+
+/* ========================= */
+/* CINEMATIC LIGHTS */
+/* ========================= */
+
+.background-lights {
+
+  position: fixed;
+  inset: 0;
+
+  overflow: hidden;
+
+  z-index: -1;
+
+  pointer-events: none;
+}
+
+/* LIGHT */
+
+.light {
+
+  position: absolute;
+
+  width: 600px;
+  height: 600px;
+
+  border-radius: 50%;
+
+  filter: blur(140px);
+
+  opacity: 0.18;
+
+  mix-blend-mode: screen;
+
+  animation: cinematicFloat 18s ease-in-out infinite;
+}
+
+/* LIGHT 1 */
+
+.l1 {
+
+  background: #f4809f;
+
+  top: -10%;
+  left: -10%;
+}
+
+/* LIGHT 2 */
+
+.l2 {
+
+  background: #e250ff;
+
+  bottom: -15%;
+  right: -10%;
+
+  animation-delay: 4s;
+}
+
+/* LIGHT 3 */
+
+.l3 {
+
+  background: #7a15ff;
+
+  top: 40%;
+  left: 35%;
+
+  animation-delay: 8s;
+}
+
+
+
+/* MOVIMIENTO */
+
+@keyframes cinematicFloat {
+
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+
+  25% {
+    transform: translate(40px, -20px) scale(1.05);
+  }
+
+  50% {
+    transform: translate(-30px, 30px) scale(0.95);
+  }
+
+  75% {
+    transform: translate(20px, -40px) scale(1.02);
+  }
+
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+
+
+@media (max-width: 900px) {
+
+  .game-card {
+    grid-template-columns: 1fr;
+  }
+
+  .game-info {
+    padding: 30px;
+  }
+
+  .page-title h1 {
+    font-size: 2.2rem;
+  }
+
+}
